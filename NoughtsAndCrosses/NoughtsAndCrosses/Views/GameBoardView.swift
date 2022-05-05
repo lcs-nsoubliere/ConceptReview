@@ -41,16 +41,16 @@ struct GameBoardView: View {
         VStack {
             
             Spacer()
-
+            
             // Current player or who won
             Text("Current player is: \(currentPlayer)")
-                // Only show when game is not over
+            // Only show when game is not over
                 .opacity(gameWon == false ? 1.0 : 0.0)
-
+            
             Text("\(currentPlayer) wins!")
-                // Only show when game IS over
+            // Only show when game IS over
                 .opacity(gameWon == true ? 1.0 : 0.0)
-
+            
             Spacer()
             
             // Top row
@@ -95,12 +95,12 @@ struct GameBoardView: View {
             }
             
             Spacer()
-
+            
             // Current turn or new game
             Group {
                 
                 Text("Current turn is: \(currentTurn)")
-                    // Only show when game is not over
+                // Only show when game is not over
                     .opacity(gameWon == false ? 1.0 : 0.0)
                 
                 Button(action: {
@@ -109,7 +109,7 @@ struct GameBoardView: View {
                     Text("New Game")
                 })
                 // Only show when game IS over
-                .opacity(gameWon == true ? 1.0 : 0.0)
+                    .opacity(gameWon == true ? 1.0 : 0.0)
                 
             }
             
@@ -119,7 +119,7 @@ struct GameBoardView: View {
         .onChange(of: currentTurn) { newValue in
             
             print("It's now turn \(newValue), current player is \(currentPlayer)...")
-
+            
             // Did somebody win?
             checkForWin()
             
@@ -143,36 +143,36 @@ struct GameBoardView: View {
             // Now check each location
             if
                 upperLeft == currentPlayer &&           // Upper row
-                upperMiddle == currentPlayer &&
-                upperRight == currentPlayer ||
+                    upperMiddle == currentPlayer &&
+                    upperRight == currentPlayer ||
                     
-                middleLeft == currentPlayer &&          // Middle row
-                middleMiddle == currentPlayer &&
-                middleRight == currentPlayer ||
-                
-                bottomLeft == currentPlayer &&          // Bottom row
-                bottomMiddle == currentPlayer &&
-                bottomRight == currentPlayer ||
-                
-                upperLeft == currentPlayer &&           // Left column
-                middleLeft == currentPlayer &&
-                bottomLeft == currentPlayer ||
-                
-                upperMiddle == currentPlayer &&         // Middle column
-                middleMiddle == currentPlayer &&
-                bottomMiddle == currentPlayer ||
-                
-                upperRight == currentPlayer &&          // Right column
-                middleRight == currentPlayer &&
-                bottomRight == currentPlayer ||
-                
-                upperLeft == currentPlayer &&           // Diagonal, left to right
-                middleMiddle == currentPlayer &&
-                bottomRight == currentPlayer ||
-                
-                upperRight == currentPlayer &&          // Diagonal, right to left
-                middleMiddle == currentPlayer &&
-                bottomLeft == currentPlayer
+                    middleLeft == currentPlayer &&          // Middle row
+                    middleMiddle == currentPlayer &&
+                    middleRight == currentPlayer ||
+                    
+                    bottomLeft == currentPlayer &&          // Bottom row
+                    bottomMiddle == currentPlayer &&
+                    bottomRight == currentPlayer ||
+                    
+                    upperLeft == currentPlayer &&           // Left column
+                    middleLeft == currentPlayer &&
+                    bottomLeft == currentPlayer ||
+                    
+                    upperMiddle == currentPlayer &&         // Middle column
+                    middleMiddle == currentPlayer &&
+                    bottomMiddle == currentPlayer ||
+                    
+                    upperRight == currentPlayer &&          // Right column
+                    middleRight == currentPlayer &&
+                    bottomRight == currentPlayer ||
+                    
+                    upperLeft == currentPlayer &&           // Diagonal, left to right
+                    middleMiddle == currentPlayer &&
+                    bottomRight == currentPlayer ||
+                    
+                    upperRight == currentPlayer &&          // Diagonal, right to left
+                    middleMiddle == currentPlayer &&
+                    bottomLeft == currentPlayer
             {
                 
                 gameWon = true
@@ -191,7 +191,7 @@ struct GameBoardView: View {
         } else {
             currentPlayer = nought
         }
-
+        
     }
     
     func resetGame() {
